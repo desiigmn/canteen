@@ -1,0 +1,400 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* FIX: Changed background from gradient to white */
+    background-color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+/* FIX: Updated color to maroon to contrast better on white */
+h1 {
+    text-align: center;
+    color: #800000;
+    text-shadow: none;
+}
+
+.subtitle {
+    text-align: center;
+    /* FIX: Changed from white to green for visibility */
+    color: #2D5A27;
+    margin-bottom: 20px;
+}
+
+.nav {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.nav a {
+    text-decoration: none;
+    margin: 0 5px;
+    padding: 10px 18px;
+    background: #FFD700;
+    color: #800000;
+    border-radius: 25px;
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    background: #800000;
+    color: #ffffff;
+}
+
+.card {
+    background: #f9f9f9; /* Subtle light gray background for cards */
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd; /* Added border to separate from white background */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.menu-item {
+    border: 2px solid #2D5A27;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #ffffff;
+    transition: 0.2s;
+}
+
+button {
+    background: #800000;
+    color: #FFD700;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #2D5A27;
+    color: white;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.cart-item {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.custom-alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #FFD700;
+    color: #800000;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+/* Add these new rules to your existing CSS */
+
+.menu-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover; /* This prevents the image from stretching */
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+}
+
+/* Image styling */
+.menu-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+}
+
+/* Cart item layout */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.remove-btn {
+    width: auto;
+    padding: 5px 10px;
+    background: #800000;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+/* History card styling */
+.history-card {
+    padding: 10px 0;
+    line-height: 1.6;
+}
+/* Layout for buttons below the menu */
+.bottom-nav {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #eee;
+}
+
+/* Specific style for bottom navigation buttons */
+.secondary-btn {
+    background: #2D5A27; /* Green */
+    color: #FFD700;    /* Yellow */
+    flex: 1;           /* Makes buttons equal width */
+    padding: 15px;
+    font-size: 1rem;
+    border: 2px solid #2D5A27;
+}
+
+.secondary-btn:hover {
+    background: #FFD700;
+    color: #800000;    /* Maroon text on hover */
+    border-color: #800000;
+}
+
+/* Mobile responsive: stack buttons on small screens */
+@media (max-width: 500px) {
+    .bottom-nav {
+        flex-direction: column;
+    }
+}
+/* Layout for individual history items */
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.history-details {
+    flex: 1;
+    line-height: 1.5;
+}
+
+/* Small delete button for individual records */
+.delete-single-btn {
+    width: auto;
+    background: #ffffff;
+    color: #800000; /* Maroon text */
+    border: 1px solid #800000;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    margin: 0 0 0 10px;
+    transition: 0.2s;
+}
+
+.delete-single-btn:hover {
+    background: #800000;
+    color: #FFD700; /* Yellow text on hover */
+}
+/* --- CUSTOM DELETE MODAL --- */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dimmed background */
+    backdrop-filter: blur(5px); /* Blurs the background content */
+    
+    /* This centers the modal box perfectly */
+    display: none; 
+    justify-content: center;
+    align-items: center;
+}
+
+/* This class will be toggled via JavaScript */
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-top: 8px solid #800000; /* Maroon accent top */
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-content h2 {
+    color: #800000;
+    margin-top: 0;
+}
+
+.modal-content p {
+    color: #555;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+/* Redesigning buttons for the prompt */
+.confirm-btn {
+    background: #800000 !important; /* Force Maroon */
+    color: #FFD700 !important;    /* Force Yellow */
+    flex: 1;
+    margin: 0;
+}
+
+.cancel-btn {
+    background: #e0e0e0 !important;
+    color: #333 !important;
+    flex: 1;
+    margin: 0;
+}
+
+.cancel-btn:hover {
+    background: #d0d0d0 !important;
+}
+.menu-item input[type="number"] {
+    border: 1px solid #2D5A27;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #800000;
+}
+
+/* Layout for the quantity and button */
+.quantity-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Makes the button larger than the input */
+    gap: 8px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Style for the quantity input (bigger arrow/spinbox) */
+.qty-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #2D5A27;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.2rem; /* Larger text */
+    font-weight: bold;
+    color: #800000;
+    box-sizing: border-box;
+}
+
+/* Style for the Add button */
+.add-btn {
+    width: 100%;
+    margin: 0;
+    padding: 12px;
+    font-size: 1rem;
+}
+/* This targets the browser's default number arrows */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    opacity: 1;
+    height: 40px; /* Makes the clickable area of the arrows much taller */
+    width: 30px;  /* Makes them wider */
+    cursor: pointer;
+}
+
+/* Fallback for Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+/* --- QUANTITY INPUT STYLING --- */
+
+.qty-input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #2D5A27;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #800000;
+    /* Basic reset for some browsers */
+    appearance: auto; 
+}
+
+/* Force arrows to be visible and larger in Chrome, Safari, and Edge */
+.qty-input::-webkit-inner-spin-button,
+.qty-input::-webkit-outer-spin-button {
+    opacity: 1 !important; /* Always visible */
+    height: 35px;         /* Taller arrows */
+    width: 25px;          /* Wider arrows */
+    cursor: pointer;
+    background-color: #eee;
+    border-left: 1px solid #2D5A27;
+}
+
+/* Adjust the layout wrapper for the menu card */
+.quantity-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.add-btn {
+    flex: 2; /* Makes the button wider than the input */
+    margin: 0;
+}
+/* Add this to style.css for a better look */
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    border-color: #800000;
+}
+
+h1 {
+    font-size: 2.5rem;
+    border-bottom: 3px solid #FFD700;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}

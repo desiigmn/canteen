@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ISPSC Canteen - Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="customAlert" class="custom-alert"></div>
+<div class="container">
+    <h1>🍽 ISPSC Canteen</h1>
+
+    <div class="card">
+        <center><h2>MENU</h2></center>
+        
+        <div id="menu" class="menu-grid"></div>
+        
+        <div class="bottom-nav">
+            <button class="secondary-btn" onclick="goToOrder()">🛒 View My Order</button>
+            <button class="secondary-btn" onclick="window.location.href='history.html'">📜 View Order History</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+displayMenu();
+</script>
+</body>
+</html>
