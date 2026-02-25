@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ISPSC Canteen - Your Order</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="customAlert" class="custom-alert"></div>
+
+<div class="container">
+    <h1>🛒 Your Order</h1>
+
+    <div class="nav">
+        <a href="index.html">🍽 Back to Menu</a>
+        <a href="history.html">📜 Order History</a>
+    </div>
+
+    <div class="card">
+        <div id="cart"></div>
+        <h3>Total: ₱<span id="total">0</span></h3>
+
+        <input type="text" id="studentName" placeholder="Enter Your Name">
+        <input type="text" id="studentId" placeholder="Enter Student ID">
+
+        <button onclick="placeOrder()">Place Order</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+updateCart();
+</script>
+</body>
+</html>
